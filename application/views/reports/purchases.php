@@ -136,18 +136,12 @@ $(document).ready(function() {
  * ---------------------------------------------------------------------------- */
 
 $(function() {
-
-
   // Date range pickers
   // ------------------------------
-
   //
   // Custom display
   //
-
   // Setup
-
-
   $('#reportrange').daterangepicker({
       startDate: moment().startOf('month'),
       endDate: moment().endOf('month'),
