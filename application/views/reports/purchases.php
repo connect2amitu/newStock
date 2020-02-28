@@ -7,6 +7,29 @@
           <span class="text-semibold">Purchase Report</span>
         </h5>
       </div>
+      <div class="heading-elements" style="display:flex;">
+        <ul class="icons-list">
+          <!-- <li><a href="#"><i class="icon-calendar22"></i></a></li>
+          <li><a href="#"><i class="icon-inbox"></i></a></li> -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-download7"></i> <span
+                class="caret"></span></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="#">CSV</a></li>
+              <li><a href="#">PDF</a></li>
+              <li><a href="#">Excel</a></li>
+              <li><a href="#">Word</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="heading-form" action="#">
+          <div class="form-group">
+            <div class="daterange-custom" id="reportrange">
+              <div class="daterange-custom-display"></div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
     <div class="breadcrumb-line">
       <ul class="breadcrumb">
@@ -21,19 +44,6 @@
 <div class="content">
 
   <div class="col-xs-12">
-    <div class="form-group">
-      <div class="row">
-        <div class="heading-elements">
-          <form class="heading-form" action="#">
-            <div class="form-group">
-              <div class="daterange-custom" id="reportrange">
-                <div class="daterange-custom-display"></div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
     <div class="row">
       <div class="panel panel-flat">
         <div class="panel-heading">

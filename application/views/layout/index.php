@@ -218,55 +218,70 @@ if ($Hour >= 5 && $Hour <= 11) {
             <div class="category-content no-padding">
               <ul class="navigation navigation-main navigation-accordion">
 
-                <li class="active"><a href="<?=base_url();?>"><i class="icon-home4"></i>
+                <li class="<?php echo !$this->uri->segment(1) ? "active":""?>"><a href="<?=base_url();?>"><i
+                      class="icon-home4"></i>
                     <span>Dashboard</span></a></li>
                 <li>
                   <a href="#"><i class="icon-stack2"></i> <span>Master</span></a>
                   <ul>
-                    <li><a href="<?=base_url("/suppliers");?>"><i class="icon-truck"></i>
+                    <li class="<?php echo $this->uri->segment(1)==="suppliers"?"active":""?>"><a
+                        href="<?=base_url("/suppliers");?>"><i class="icon-truck"></i>
                         <span>Supplier</span></a></li>
-                    <li><a href="<?=base_url("/brands");?>"><i class="icon-users4"></i>
+                    <li class="<?php echo $this->uri->segment(1)==="brands"?"active":""?>"><a
+                        href="<?=base_url("/brands");?>"><i class="icon-users4"></i>
                         <span>Brands</span></a></li>
-                    <li><a href="<?=base_url("/product-category");?>"><i class="icon-list2"></i> <span>Product
+                    <li class="<?php echo $this->uri->segment(1)==="product-category"?"active":""?>"><a
+                        href="<?=base_url("/product-category");?>"><i class="icon-list2"></i> <span>Product
                           Category</span></a></li>
-                    <li><a href="<?=base_url("/products");?>"><i class="icon-grid2"></i>
+                    <li class="<?php echo $this->uri->segment(1)==="products"?"active":""?>"><a
+                        href="<?=base_url("/products");?>"><i class="icon-grid2"></i>
                         <span>Products </span></a></li>
-                    <li><a href="<?=base_url("/unit");?>"><i class="icon-rulers"></i>
+                    <li class="<?php echo $this->uri->segment(1)==="unit"?"active":""?>"><a
+                        href="<?=base_url("/unit");?>"><i class="icon-rulers"></i>
                         <span>Unit of Measurement </span></a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#"><i class="icon-cash"></i> <span>Purchase</span></a>
                   <ul>
-                    <li><a href="<?=base_url("/purchase");?>"><i class="icon-cash"></i>
+                    <li class="<?php echo $this->uri->segment(1)==="purchase"?"active":""?>"><a
+                        href="<?=base_url("/purchase");?>"><i class="icon-cash"></i>
                         <span>Invoice</span></a></li>
-                    <li><a href="<?=base_url("/purchase-return");?>"><i class="icon-cash"></i>
+                    <li class="<?php echo $this->uri->segment(1)==="purchase-return"?"active":""?>"><a
+                        href="<?=base_url("/purchase-return");?>"><i class="icon-cash"></i>
                         <span>Return</span></a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#"><i class="icon-cart"></i> <span>Sales</span></a>
                   <ul>
-                    <li><a href="<?=base_url("/sales");?>"><i class="icon-cart"></i>
+                    <li class="<?php echo $this->uri->segment(1)==="sales"?"active":""?>"><a
+                        href="<?=base_url("/sales");?>"><i class="icon-cart"></i>
                         <span>Invoice</span></a></li>
-                    <li><a href="<?=base_url("/sales-return");?>"><i class="icon-cart"></i>
+                    <li class="<?php echo $this->uri->segment(1)==="sales-return"?"active":""?>"><a
+                        href="<?=base_url("/sales-return");?>"><i class="icon-cart"></i>
                         <span>Return</span></a></li>
                   </ul>
                 </li>
-                <li><a href="<?=base_url("/customer");?>"><i class="icon-users4"></i>
+                <li class="<?php echo $this->uri->segment(1)==="customer"?"active":""?>"><a
+                    href="<?=base_url("/customer");?>"><i class="icon-users4"></i>
                     <span>Customer</span></a></li>
-                <li><a href="<?=base_url("/expense");?>"><i class="icon-sigma"></i>
+                <li class="<?php echo $this->uri->segment(1)==="expense"?"active":""?>"><a
+                    href="<?=base_url("/expense");?>"><i class="icon-sigma"></i>
                     <span>Expense</span></a></li>
                 <li>
                   <a href="#"><i class="icon-cart"></i> <span>Reports</span></a>
                   <ul>
-                    <li><a href="<?=base_url("/reports/purchases");?>"><i class="icon-cart"></i>
+                    <li class="<?php echo $this->uri->segment(2)==="purchases"?"active":""?>"><a
+                        href="<?=base_url("/reports/purchases");?>"><i class="icon-cart"></i>
                         <span>Purchases Invoice</span></a></li>
-                    <li><a href="<?=base_url("/reports/sales");?>"><i class="icon-cart"></i>
+                    <li class="<?php echo $this->uri->segment(2)==="sales"?"active":""?>"><a
+                        href="<?=base_url("/reports/sales");?>"><i class="icon-cart"></i>
                         <span>Sales Invoice</span></a></li>
                   </ul>
                 </li>
-                <li><a href="<?=base_url("/company-details/edit");?>"><i class="icon-cog4"></i>
+                <li class="<?php echo $this->uri->segment(1)==="company-details"?"active":""?>"><a
+                    href="<?=base_url("/company-details/edit");?>"><i class="icon-cog4"></i>
                     <span>My Company</span></a></li>
 
               </ul>
