@@ -26,6 +26,10 @@ class Login_Ctrl extends My_Controller {
 			$array = array(
 				'admin_id' => ucfirst($data[0]['Name'])
 			);
+			$adminId = array('Admin_ID'=>$data[0]['ID']);
+			if($user = $this->lm->userData($adminId)[0]){
+				$this->session->set_userdata('user',$user);				
+			}
 			$this->session->set_userdata( $array );
 			$this->session->set_flashdata('success', 'Login Success');
 			redirect(base_url());		

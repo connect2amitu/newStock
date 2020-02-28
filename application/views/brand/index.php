@@ -3,7 +3,7 @@
     <div class="page-header-content">
       <div class="page-title">
         <h5>
-          <i class="icon-arrow-left52 position-left"></i>
+          <i class="icon-circle-left2 position-left"></i>
           <span class="text-semibold">Brands</span>
         </h5>
       </div>

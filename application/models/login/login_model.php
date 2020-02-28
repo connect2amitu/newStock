@@ -6,6 +6,10 @@ class Login_Model extends CI_Model  {
 	function login($object){
 		return $this->db->get_where('admin', $object)->result_array();
 	}
+	
+	function userData($object){
+		return $this->db->get_where('company_details', $object)->result_array();
+	}
     
     function get_all_states(){
 		return $this->db->get('states')->result_array();

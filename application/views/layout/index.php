@@ -69,7 +69,7 @@ if ($Hour >= 5 && $Hour <= 11) {
 } else if ($Hour >= 19 || $Hour <= 4) {
     echo "Good Evening";
 }
-?>, <strong><?php echo $this->session->userdata('admin_id'); ?> !</strong></p>
+?>, <strong><?php echo $this->session->userdata('user')['Company_Name']; ?></strong></p>
         <p class="navbar-text"><span class="label bg-success-400">Online</span></p>
 
         <ul class="nav navbar-nav">
@@ -187,10 +187,12 @@ if ($Hour >= 5 && $Hour <= 11) {
             <div class="category-content">
               <div class="sidebar-user-material-content">
                 <a href="#" style="box-shadow: none;"><img
-                    src="https://img.icons8.com/bubbles/2x/admin-settings-male.png" class="img-circle img-responsive"
+                    src="<?=$this->session->userdata('user')['Company_Logo'];?>" class="img-circle img-responsive"
                     alt=""></a>
-                <h6><?=$this->session->userdata('admin_id');?></h6>
-                <span class="text-size-small">Surat, Gujarat, India</span>
+                <!-- <h6><?=$this->session->userdata('admin_id');?></h6> -->
+                <h6><?=$this->session->userdata('user')['Company_Name'];?></h6>
+                <span class="text-size-small"><?=$this->session->userdata('user')['Address'];?></span>
+                <!-- <span class="text-size-small">Surat, Gujarat, India</span> -->
               </div>
 
               <div class="sidebar-user-material-menu">

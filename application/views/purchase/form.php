@@ -445,7 +445,7 @@ foreach ($products as $row) {
                   <option value="UPI">UPI</option>
                 </select>
                 <input type="text" id="Add_Payment" autocomplete="off"  class="form-control" placeholder="Enter Payments"  />
-                <button type="button" id="Add_Payment_btn" class=" btn bg-teal-400  access-multiple-open">Add Payment
+                <button type="button" id="Add_Payment_btn" class="mt-10 btn bg-teal-400  access-multiple-open">Add Payment
                 <!-- <i class="icon-plus"></i> -->
             </button>
             </td>
