@@ -21,11 +21,11 @@ class Sales_Ctrl extends My_Controller
     public function index()
     {
         $data = array();
-        $data['data'] = $this->sm->get_all();   
-        $data['content'] = $this->load->view('sales/index', $data, true);       
+        $data['data'] = $this->sm->get_all();
+        $data['content'] = $this->load->view('sales/index', $data, true);
         $this->load->view('layout/index.php', $data);
     }
-   
+
 
     public function addToCart()
     {
@@ -61,26 +61,26 @@ class Sales_Ctrl extends My_Controller
         $sub_total=0;
         foreach ($this->cart->contents() as $row) {
             ?>
-        <tr>
-            <td><button type="button" id=<?php echo $row['rowid'] ?> productId=<?php echo $row['id'] ?>
-                class="remove_cart btn btn-danger btn-sm"><i class="icon-trash"></i></button></td>
-            <td><?php echo $row['name'] ?></td>
-            <td><?php echo $row['unit'] ?></td>
-            <td><?php echo $row['HSN'] ?></td>
-            <td><?php echo $row['GST'] ?></td>
-            <td><?php echo $row['qty'] ?></td>
-            <td>&#x20B9;&nbsp;<?php echo $row['price'] ?></td>
-            <td><?php echo $row['discount']>0?$row['discount']:0 ?> %</td>
-            <td style="display:flex;align-items:center">&#x20B9;&nbsp;
-            <input style="width:50px;border:none" class="form-control" readonly type="text" name="total[]" value="<?php if((int)$row['discount']>0){
+<tr>
+  <td><button type="button" id=<?php echo $row['rowid'] ?> productId=<?php echo $row['id'] ?>
+      class="remove_cart btn btn-danger btn-sm"><i class="icon-trash"></i></button></td>
+  <td><?php echo $row['name'] ?></td>
+  <td><?php echo $row['unit'] ?></td>
+  <td><?php echo $row['HSN'] ?></td>
+  <td><?php echo $row['GST'] ?></td>
+  <td><?php echo $row['qty'] ?></td>
+  <td>&#x20B9;&nbsp;<?php echo $row['price'] ?></td>
+  <td><?php echo $row['discount']>0?$row['discount']:0 ?> %</td>
+  <td style="display:flex;align-items:center">&#x20B9;&nbsp;
+    <input style="width:50px;border:none" class="form-control" readonly type="text" name="total[]" value="<?php if((int)$row['discount']>0){
                 $total = $row['subtotal'] - ($row['subtotal'] * $row['discount'] / 100);
                 echo $total;
                 $sub_total = $sub_total+$total;
                 }else{
                 echo $row['subtotal'];
                 } ?> " />
-             </td>
-        </tr>
+  </td>
+</tr>
 <?php
 }
     }
@@ -103,7 +103,7 @@ class Sales_Ctrl extends My_Controller
 
         redirect('sales/index');
     }
-    
+
     public function undo($id = "")
     {
         $id = array('Sales_ID' => $id);
@@ -146,11 +146,11 @@ class Sales_Ctrl extends My_Controller
             redirect('sales');
         }
     }
-    
+
     public function add()
     {
         if ($this->input->server('REQUEST_METHOD') == 'GET') {
-            
+
             $saleId = $this->sm->get_last_record() ? $this->sm->get_last_record()[0]['Sales_ID']+1:"";
             $data['lastSalesId'] = "SALE00".$saleId;
             $data['customers'] = $this->cm->get_all();
@@ -160,19 +160,23 @@ class Sales_Ctrl extends My_Controller
             foreach ($this->cart->contents() as $items) {
                 $this->cart->remove($items['rowid']);
             }
-            
+
             $data['cart'] = $this->cart->contents();
             $data['content'] = $this->load->view('sales/form', $data, true);
             $this->load->view('layout/index.php', $data);
         } else {
-           
+        //    echo `<pre>`;
+        //    print_r($_REQUEST);
+        //    echo `</pre>`;
+        //    die;
             $addSalesData = array(
                 'Customer_ID' => $this->input->post('Customer_ID'),
                 'Sales_Invoice' => $this->input->post('Sales_Invoice'),
                 'Sales_Date' => date('Y/m/d h:i:s', strtotime($this->input->post('Sales_Date'))),
                 'Sales_Notes' => $this->input->post('Sales_Notes'),
-                'Sub_Total' => $this->input->post('Sub_Total'),                                    
+                'Sub_Total' => $this->input->post('Sub_Total'),
                 'Discount' => $this->input->post('Discount'),
+                'Received_Amount' => $this->input->post('Received_Amount'),
                 'Grand_Total' => $this->input->post('Grand_Total'),
             );
             if ($Sales_ID = $this->sm->add($addSalesData)) {
@@ -188,7 +192,7 @@ class Sales_Ctrl extends My_Controller
                         'IGST' => $row['IGST'],
                         "Total" => $row['subtotal'] - ($row['subtotal'] * $row['discount'] / 100)
                     );
-                  
+
                     if ($this->sm->addSalesDetail($data)) {
                         $this->session->set_flashdata('success', 'Record Added Successfully');
                     }else {
@@ -214,7 +218,7 @@ class Sales_Ctrl extends My_Controller
                     $newStock=array('Available_Qty'=>$current_stock);
                     $this->pm->edit($newStock,$id);
                 }
-                
+
                 $payments=json_decode($this->input->post('Hidden_Amount_Due'),true);
                 foreach ($payments as $row) {
                     $data = array(
@@ -227,7 +231,7 @@ class Sales_Ctrl extends My_Controller
                         $this->session->set_flashdata('success', 'Record Added Successfully');
                     }else {
                         $this->session->set_flashdata('error', 'Record Not Added ');
-                    } 
+                    }
                 }
 
                 if($this->input->post('save_print')!=="" && $this->input->post('save_print')==="save_print"){
@@ -235,18 +239,18 @@ class Sales_Ctrl extends My_Controller
                 }
             } else {
                 $this->session->set_flashdata('error', 'Master Sale Record Could Not Added');
-                
-            }   
+
+            }
             redirect('sales');
         }
     }
 
     public function gen_pdf($salesId=""){
-        
+
         $id = array('Sales_ID' => $salesId);
-        $data['data'] = $this->sm->get_by_id($id); 
-        $data['terms_conditions'] = $this->common_model->get_terms_conditions(); 
-        $data['company_detail'] = $this->common_model->get_my_company()?$this->common_model->get_my_company()[0]:""; 
+        $data['data'] = $this->sm->get_by_id($id);
+        $data['terms_conditions'] = $this->common_model->get_terms_conditions();
+        $data['company_detail'] = $this->common_model->get_my_company()?$this->common_model->get_my_company()[0]:"";
         $this->load->view('sales/pdfGen.php',$data);
         // $data['content'] = $this->load->view('sales/pdfGenTemplate.php',$data, true);
 
@@ -257,7 +261,7 @@ class Sales_Ctrl extends My_Controller
     public function sales_return($id = "")
     {
         if ($this->input->server('REQUEST_METHOD') == 'GET') {
-            
+
             $data['data'] = $this->sm->get_all();
             // $data['products'] = $this->pm->get_all();
             // $data['data'] = $this->sm->get_by_id($id);
@@ -288,21 +292,21 @@ class Sales_Ctrl extends My_Controller
     public function get_sales_by_invoice()
     {
         $id = array('Sales_Invoice' => $this->input->post('Sales_Invoice'));
-        
+
         if($this->sm->get_by_id($id)){
-            $data['sales'] = $this->sm->get_by_id($id)[0];  
+            $data['sales'] = $this->sm->get_by_id($id)[0];
         }
 
         $sales_detail = array('Sales_Number' => $data['sales']['Sales_ID']);
-        $data['sales_details'] = $this->sm->get_sales_detail_by_id($sales_detail);  
+        $data['sales_details'] = $this->sm->get_sales_detail_by_id($sales_detail);
         echo json_encode($data,JSON_NUMERIC_CHECK);
-		
+
     }
-    
+
     public function sale_return()
-    {    
-        $totalSalesReturn = count($_POST['Product_ID']); 
-        for ($i=0; $i < $totalSalesReturn; $i++) { 
+    {
+        $totalSalesReturn = count($_POST['Product_ID']);
+        for ($i=0; $i < $totalSalesReturn; $i++) {
             $data=array(
                 'Sales_Detail_Id'=>$this->input->post('Sales_Detail_ID')[$i],
                 'Return_Qty'=>$this->input->post('Return_Quantity')[$i],
@@ -311,9 +315,9 @@ class Sales_Ctrl extends My_Controller
                 'Sale_Invoice_Number'=>$this->input->post('Sales_Invoice'),
             );
             if ($this->sm->add_sales_return($data)) {
-                 
+
             }else{
-                
+
             }
         }
         redirect('sales');

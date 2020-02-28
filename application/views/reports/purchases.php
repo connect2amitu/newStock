@@ -32,7 +32,6 @@
               <h5 class="panel-title">Purchase Report</h5>
             </div>
           </div>
-
         </div>
         <table class="table table-responsive footable-group-row">
           <thead>
