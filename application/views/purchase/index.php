@@ -1,11 +1,19 @@
-<!-- breadcrumb -->
-<div class="page-header page-header-default">
-  <div class="breadcrumb-line">
-    <ul class="breadcrumb">
-      <li><a href="<?php echo base_url() ?>"><i class="icon-home2 position-left"></i> Dashboard</a></li>
-      <li class="active">Purchase</li>
-    </ul>
-    <a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
+<div class="content-group">
+  <div class="page-header page-header-inverse has-cover">
+    <div class="page-header-content">
+      <div class="page-title">
+        <h5>
+          <i class="icon-arrow-left52 position-left"></i>
+          <span class="text-semibold">Purchase</span>
+        </h5>
+      </div>
+    </div>
+    <div class="breadcrumb-line">
+      <ul class="breadcrumb">
+        <li><a href="<?= base_url(); ?>"><i class="icon-home2 position-left"></i> Home</a></li>
+        <li class="active">Purchase</li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -35,7 +43,7 @@ if (count($data)) {
             <th>Invoice #</th>
             <th>Date</th>
             <th>Notes</th>
-    
+
             <th>Discount</th>
             <th>Freight </th>
             <th>Sub Total</th>
@@ -55,12 +63,12 @@ if (count($data)) {
     foreach ($data as $row) {
         ?>
           <tr>
-          <td><?php echo $row['Purchase_ID'] ?></td>
+            <td><?php echo $row['Purchase_ID'] ?></td>
             <td><?php echo $row['Supplier_Name'] ?></td>
             <td><?php echo $row['Purchase_Invoice'] ?></td>
             <td><?php echo date_format(date_create($row['Purchase_Date']), "d-m-Y h:i:s A") ?></td>
             <td><?php echo $row['Purchase_Notes'] ?></td>
-          
+
             <td><?php echo $row['Discount'] ?></td>
             <td><?php echo $row['Freight'] ?></td>
             <td><?php echo $row['Sub_Total'] ?></td>
@@ -72,12 +80,15 @@ if (count($data)) {
             <td><?php echo $row['Added_By'] ?></td>
             <td><?php echo $row['Date_Updated'] ?></td>
             <td><?php echo $row['Updated_By'] ?></td> -->
-            
-              <td style="display:flex">
-              <a style="margin-right:5px" href="<?php echo base_url('purchase/edit/'.$row['Purchase_ID']); ?>" class="btn btn-primary legitRipple"><i class="icon-pencil6 position-left"></i></a>
 
-              <a onclick="return confirm(`Are you sure you want to remove?`)" href="<?php echo base_url('purchase/remove/'.$row['Purchase_ID']); ?>" class="btn btn-danger legitRipple"><i class="icon-trash position-left"></i></a>
-              </td>
+            <td style="display:flex">
+              <a style="margin-right:5px" href="<?php echo base_url('purchase/edit/'.$row['Purchase_ID']); ?>"
+                class="btn btn-primary legitRipple"><i class="icon-pencil6 position-left"></i></a>
+
+              <a onclick="return confirm(`Are you sure you want to remove?`)"
+                href="<?php echo base_url('purchase/remove/'.$row['Purchase_ID']); ?>"
+                class="btn btn-danger legitRipple"><i class="icon-trash position-left"></i></a>
+            </td>
           </tr>
           <?php
 }

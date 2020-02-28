@@ -15,7 +15,8 @@
   <link href="<?=base_url("assets/css/components.css")?>" rel="stylesheet" type="text/css">
   <link href="<?=base_url("assets/css/colors.css")?>" rel="stylesheet" type="text/css">
   <link href="<?=base_url("assets/css/sweetalert.css")?>" rel="stylesheet" type="text/css">
-  <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
+  <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+
 
   <!-- /global stylesheets -->
 
@@ -265,7 +266,7 @@ if ($Hour >= 5 && $Hour <= 11) {
                         <span>Sales Invoice</span></a></li>
                   </ul>
                 </li>
-                <li><a href="<?=base_url("/company_details/edit");?>"><i class="icon-cog4"></i>
+                <li><a href="<?=base_url("/company-details/edit");?>"><i class="icon-cog4"></i>
                     <span>My Company</span></a></li>
 
               </ul>

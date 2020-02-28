@@ -45,9 +45,9 @@ $route['customer'] = 'customer_ctrl';
 $route['customer/(:any)'] = 'customer_ctrl/$1';
 $route['customer/(:any)/(:any)'] = 'customer_ctrl/$1/$2';
 
-$route['company_details'] = 'company_details_ctrl';
-$route['company_details/(:any)'] = 'company_details_ctrl/$1';
-$route['company_details/(:any)/(:any)'] = 'company_details_ctrl/$1/$2';
+$route['company-details'] = 'company_details_ctrl';
+$route['company-details/(:any)'] = 'company_details_ctrl/$1';
+$route['company-details/(:any)/(:any)'] = 'company_details_ctrl/$1/$2';
 
 
 

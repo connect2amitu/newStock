@@ -1,13 +1,23 @@
-<!-- breadcrumb -->
-<div class="page-header page-header-default">
-  <div class="breadcrumb-line">
-    <ul class="breadcrumb">
-      <li><a href="<?php echo base_url() ?>"><i class="icon-home2 position-left"></i> Dashboard</a></li>
-      <li class="active">Purchase Report</li>
-    </ul>
-    <a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
+<div class="content-group">
+  <div class="page-header page-header-inverse has-cover">
+    <div class="page-header-content">
+      <div class="page-title">
+        <h5>
+          <i class="icon-arrow-left52 position-left"></i>
+          <span class="text-semibold">Sales Report</span>
+        </h5>
+      </div>
+    </div>
+    <div class="breadcrumb-line">
+      <ul class="breadcrumb">
+        <li><a href="<?= base_url(); ?>"><i class="icon-home2 position-left"></i> Home</a></li>
+        <li class="active">Sales Report</li>
+      </ul>
+    </div>
   </div>
 </div>
+
+
 <div class="content">
 
   <div class="col-xs-12">
