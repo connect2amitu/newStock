@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 28, 2020 at 01:30 PM
--- Server version: 5.7.19
--- PHP Version: 5.6.31
+-- Generation Time: Feb 28, 2020 at 07:28 PM
+-- Server version: 5.7.21
+-- PHP Version: 5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -7458,6 +7458,8 @@ DROP TABLE IF EXISTS `company_details`;
 CREATE TABLE IF NOT EXISTS `company_details` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Company_Name` varchar(50) NOT NULL,
+  `Owner_Name` varchar(30) NOT NULL,
+  `Admin_ID` int(11) NOT NULL,
   `Address` varchar(150) NOT NULL,
   `State` varchar(20) NOT NULL,
   `Country` varchar(20) NOT NULL,
@@ -7481,8 +7483,8 @@ CREATE TABLE IF NOT EXISTS `company_details` (
 -- Dumping data for table `company_details`
 --
 
-INSERT INTO `company_details` (`ID`, `Company_Name`, `Address`, `State`, `Country`, `City`, `Phone_Number`, `Mobile_No`, `GSTIN`, `Pan_No`, `Bank_Name`, `Branch_Name`, `Account_Number`, `IFSC_Code`, `Email`, `Website`, `Company_Logo`, `Description`) VALUES
-(1, 'Surat aGro', 'G-19, Prime Shoppers.,Opp Safal Squares', '12', 'IN', '1251', 9586253639, 7894561231, '24ALWPP4320P1ZZ', 'PAN0045', 'indian bank', 'gandhidham', '6699530541', 'gand005', 'suratagro2018@gmail.', 'suratagro.in', 'assets/uploads/2019-12-21-23-05-35-883.jpg', '																																																		');
+INSERT INTO `company_details` (`ID`, `Company_Name`, `Owner_Name`, `Admin_ID`, `Address`, `State`, `Country`, `City`, `Phone_Number`, `Mobile_No`, `GSTIN`, `Pan_No`, `Bank_Name`, `Branch_Name`, `Account_Number`, `IFSC_Code`, `Email`, `Website`, `Company_Logo`, `Description`) VALUES
+(1, 'Surat Agro', 'Chetan B.', 1, 'G-19, Prime Shoppers.,Opp Safal Squares', '12', 'IN', '1251', 9586253639, 7894561231, '24ALWPP4320P1ZZ', 'PAN0045', 'indian bank', 'gandhidham', '6699530541', 'gand005', 'suratagro2018@gmail.', 'suratagro.in', 'assets/uploads/aralia-plant-500x500.jpg', '																																																		');
 
 -- --------------------------------------------------------
 
@@ -7840,7 +7842,7 @@ CREATE TABLE IF NOT EXISTS `payments` (
   `Payment_Mode` varchar(20) NOT NULL,
   `Transaction` varchar(20) NOT NULL,
   PRIMARY KEY (`Payment_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `payments`
@@ -7891,7 +7893,8 @@ INSERT INTO `payments` (`Payment_ID`, `Transaction_ID`, `Payment_Amount`, `Payme
 (42, 23, 3300, 'Cash', 'PURCHASES'),
 (43, 24, 21240, 'Cash', 'SALES'),
 (44, 25, 15930, 'Cash', 'SALES'),
-(45, 26, 2000, 'Cash', 'SALES');
+(45, 26, 2000, 'Cash', 'SALES'),
+(46, 27, 2916, 'Cash', 'SALES');
 
 -- --------------------------------------------------------
 
@@ -8087,21 +8090,6 @@ INSERT INTO `purchases_return` (`Purchases_Return_Id`, `Purchases_Detail_Id`, `P
 -- --------------------------------------------------------
 
 --
--- Table structure for table `register`
---
-
-DROP TABLE IF EXISTS `register`;
-CREATE TABLE IF NOT EXISTS `register` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `sales`
 --
 
@@ -8123,7 +8111,7 @@ CREATE TABLE IF NOT EXISTS `sales` (
   `Updated_By` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`Sales_ID`),
   KEY `TSupplierTBeli` (`Customer_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sales`
@@ -8134,7 +8122,8 @@ INSERT INTO `sales` (`Sales_ID`, `Customer_ID`, `Sales_Invoice`, `Sales_Date`, `
 (23, '1', 'SALE0023', '2020-02-12', '10', 1764, 0, 2081, 2081.00, 0, NULL, NULL, NULL, NULL),
 (24, '0', 'SALE0024', '2020-02-27', '1212', 18000, 0, 21240, 21240.00, 0, NULL, NULL, NULL, NULL),
 (25, '1', 'SALE0025', '2020-02-28', '10', 13500, 0, 15930, 15930.00, 0, NULL, NULL, NULL, NULL),
-(26, '1', 'SALE0026', '2020-02-28', '12', 1800, 0, 2124, 2000.00, 0, NULL, NULL, NULL, NULL);
+(26, '1', 'SALE0026', '2020-02-28', '12', 1800, 0, 2124, 2000.00, 0, NULL, NULL, NULL, NULL),
+(27, '0', 'SALE0027', '2020-02-29', '', 0, 0, 2916, 2916.00, 0, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
