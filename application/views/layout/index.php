@@ -26,9 +26,6 @@
   <!-- Datepicker -->
   <!-- /theme JS files -->
 
-
-
-
 </head>
 
 <body>
@@ -164,7 +161,7 @@ if ($Hour >= 5 && $Hour <= 11) {
 
         </ul>
 
-        <a class="navbar-text" href="<?=base_url('login/logout');?>"><span>Logout</span> <i class="icon-switch2"></i>
+        <a class="navbar-text" href="<?=base_url('login/logout');?>"><span></span> <i class="icon-switch2"></i>
         </a>
       </div>
     </div>
@@ -186,9 +183,15 @@ if ($Hour >= 5 && $Hour <= 11) {
           <div class="sidebar-user-material">
             <div class="category-content">
               <div class="sidebar-user-material-content">
-                <a href="#" style="box-shadow: none;"><img
-                    src="<?=$this->session->userdata('user')['Company_Logo'];?>" class="img-circle img-responsive"
-                    alt=""></a>
+                <a href="#" style="box-shadow: none;
+                background: url(<?=base_url($this->session->userdata('user')['Company_Logo']);?>);
+                height: 80px;
+                width: 80px;
+                border-radius: 50%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                object-fit: cover;"></a>
                 <!-- <h6><?=$this->session->userdata('admin_id');?></h6> -->
                 <h6><?=$this->session->userdata('user')['Company_Name'];?></h6>
                 <span class="text-size-small"><?=$this->session->userdata('user')['Address'];?></span>
@@ -332,10 +335,10 @@ if ($Hour >= 5 && $Hour <= 11) {
 <script type="text/javascript" src="<?=base_url("assets/js/pages/form_select2.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/pages/datatables_advanced.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/pages/dashboard.js")?>"></script>
-<script type="text/javascript" src="<?=base_url("assets/js/plugins/ui/ripple.min.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/plugins/notifications/sweet_alert.min.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/plugins/pickers/daterangepicker.js")?>"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?=base_url("assets/js/plugins/ui/ripple.min.js")?>"></script>
 
 
 
