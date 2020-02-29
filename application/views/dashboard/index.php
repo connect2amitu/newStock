@@ -64,7 +64,15 @@ $(document).ready(function() {
 <div class="content">
 
   <div class="row" style="display:flex;align-item:center;justify-content:flex-end">
-    <div class=""><button class="btn bg-teal-400  access-multiple-open legitRipple"><i class="icon-folder-search"></i></button></div>
+    <div class="">
+      <div style="margin:30px 0;">
+                                    <a href="" class="btn bg-indigo-800">Yesterday</a>
+                                    <a href="" class="btn bg-indigo-700">This Week</a>
+                                    <a href="" class="btn bg-indigo-600">Last Week</a>
+                                    <a href="" class="btn bg-indigo">This Month</a>
+                                    <a href="" class="btn bg-indigo-400">Last Month</a>
+                                </div>
+  </div>
   </div>
   <div class="row">
     <div class="col-lg-3">
