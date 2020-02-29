@@ -25,6 +25,14 @@
 
   <!-- Datepicker -->
   <!-- /theme JS files -->
+  <style>
+  .back-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    visibility: hidden;
+}
+</style>
 
 </head>
 
@@ -305,6 +313,9 @@ if ($Hour >= 5 && $Hour <= 11) {
 					</div> -->
     <!-- /footer -->
   </div>
+  <a data-popup="tooltip" data-placement="top" title="" id="toTop" href="javascript:void(0)" class="back-top fab-menu-btn btn bg-teal-400 btn-float btn-rounded btn-icon" data-original-title="Scroll to Top" style="visibility: visible;">
+            <i class="fab-icon-open icon-arrow-up15"></i>
+  </a>
 </body>
 
 </html>
@@ -347,4 +358,19 @@ if ($Hour >= 5 && $Hour <= 11) {
 $('input[id$=datepicker]').datepicker({
   dateFormat: 'dd-mm-yy'
 });
+$("#toTop").click(function () {
+
+           $("html, body").animate({scrollTop: 0}, 500);
+        });
+
+        window.onscroll = function ()
+        {
+            if (pageYOffset >= 200)
+            {
+                document.getElementById('toTop').style.visibility = "visible";
+            } else
+            {
+                document.getElementById('toTop').style.visibility = "hidden";
+            }
+        };
 </script>
