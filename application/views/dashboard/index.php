@@ -63,7 +63,9 @@ $(document).ready(function() {
 
 <div class="content">
 
-
+  <div class="row" style="display:flex;align-item:center;justify-content:flex-end">
+    <div class=""><button class="btn bg-teal-400  access-multiple-open legitRipple"><i class="icon-folder-search"></i></button></div>
+  </div>
   <div class="row">
     <div class="col-lg-3">
       <div class="ibox float-e-margins">
