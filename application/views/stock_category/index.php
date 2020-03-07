@@ -76,12 +76,20 @@
             <td><?php echo $row['Category_ID'] ?></td>
             <td><?php echo $row['Category_Name'] ?></td>
             <td style="display:flex">
-              <a style="margin-right:5px" href="<?php echo base_url('product-category/edit/'.$row['Category_ID']); ?>"
+              <!-- <a style="margin-right:5px" href="<?php echo base_url('product-category/edit/'.$row['Category_ID']); ?>"
                 class="btn btn-primary legitRipple"><i class="icon-pencil6 position-left"></i></a>
 
               <a onclick="return confirm(`Are you sure you want to remove?`)"
                 href="<?php echo base_url('product-category/remove/'.$row['Category_ID']); ?>"
-                class="btn btn-danger legitRipple"><i class="icon-trash position-left"></i></a>
+                class="btn btn-danger legitRipple"><i class="icon-trash position-left"></i></a> -->
+
+              <a style="margin-right:5px;color:green"
+                href="<?php echo base_url('product-category/edit/'.$row['Category_ID']); ?>" class="legitRipple"><i
+                  class="icon-pencil4 position-left"></i></a>
+              <a style="margin-right:5px;color:red"
+                href="<?php echo base_url('product-category/remove/'.$row['Category_ID']); ?>" class="legitRipple"
+                onclick="return confirm(`Are you sure you want to remove?`)"><i
+                  class="icon-trash position-left"></i></a>
             </td>
           </tr>
           <?php

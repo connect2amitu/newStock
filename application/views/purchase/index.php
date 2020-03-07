@@ -82,12 +82,13 @@ if (count($data)) {
             <td><?php echo $row['Updated_By'] ?></td> -->
 
             <td style="display:flex">
-              <a style="margin-right:5px" href="<?php echo base_url('purchase/edit/'.$row['Purchase_ID']); ?>"
-                class="btn btn-primary legitRipple"><i class="icon-pencil6 position-left"></i></a>
-
-              <a onclick="return confirm(`Are you sure you want to remove?`)"
-                href="<?php echo base_url('purchase/remove/'.$row['Purchase_ID']); ?>"
-                class="btn btn-danger legitRipple"><i class="icon-trash position-left"></i></a>
+              <a style="margin-right:5px;color:green"
+                href="<?php echo base_url('purchase/edit/'.$row['Purchase_ID']); ?>" class="legitRipple"><i
+                  class="icon-pencil4 position-left"></i></a>
+              <a style="margin-right:5px;color:red"
+                href="<?php echo base_url('purchase/remove/'.$row['Purchase_ID']); ?>" class="legitRipple"
+                onclick="return confirm(`Are you sure you want to remove?`)"><i
+                  class="icon-trash position-left"></i></a>
             </td>
           </tr>
           <?php

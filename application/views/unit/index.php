@@ -33,8 +33,6 @@
       <!-- <table class="table panel table-bordered table-hover datatable-highlight"> -->
       <table class="table">
         <!-- <table class="table datatable-responsive-row-control"> -->
-
-
         <thead>
           <tr>
             <th>#</th>
@@ -55,18 +53,16 @@
             <td><?php echo $row['Name'] ?></td>
             <td><?php echo $row['Description'] ?></td>
             <td style="display:flex">
-              <a style="margin-right:5px" href="<?php echo base_url('unit/edit/'.$row['Unit_ID']); ?>"
-                class="btn btn-primary legitRipple"><i class="icon-pencil6 position-left"></i></a>
-
-              <a onclick="return confirm(`Are you sure you want to remove?`)"
-                href="<?php echo base_url('unit/remove/'.$row['Unit_ID']); ?>" class="btn btn-danger legitRipple"><i
+              <a style="margin-right:5px;color:green" href="<?php echo base_url('unit/edit/'.$row['Unit_ID']); ?>"
+                class="legitRipple"><i class="icon-pencil4 position-left"></i></a>
+              <a style="margin-right:5px;color:red" href="<?php echo base_url('unit/remove/'.$row['Unit_ID']); ?>"
+                class="legitRipple" onclick="return confirm(`Are you sure you want to remove?`)"><i
                   class="icon-trash position-left"></i></a>
             </td>
           </tr>
           <?php
 }
 ?>
-
         </tbody>
       </table>
     </div>
@@ -74,7 +70,6 @@
   }else{
     echo "<h1>No Record Found</h1>";
   }
-
   ?>
   </div>
 </div>
