@@ -1,8 +1,3 @@
-<script>
-$(document).ready(function() {
-  $('#myTable').DataTable();
-});
-</script>
 <style>
 .ibox {
   clear: both;
@@ -41,6 +36,15 @@ $(document).ready(function() {
 }
 </style>
 
+
+<script>
+$(document).ready(function() {
+
+  $('#dTable').dataTable({
+  });
+});
+
+</script>
 
 <div class="content-group">
   <div class="page-header page-header-inverse has-cover">
@@ -137,7 +141,7 @@ $(document).ready(function() {
     <div class="col-xs-12 col-sm-6 panel">
       <h1>Products Less Than Minimum Stock Level</h1>
       <!-- <table class="table table-hover dashboard_datatable"> -->
-      <table class="table" id="myTable">
+      <table class="table table-bordered table-hover " id="dTable">
 
         <!-- <table class="table datatable-responsive-row-control"> -->
 

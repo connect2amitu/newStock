@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inventory System</title>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inventory System</title>
+    <script type="text/javascript" src="<?=base_url("assets/js/core/libraries/jquery.min.js")?>"></script>
 
   <!-- Global stylesheets -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
   <link href="<?=base_url("assets/css/icons/icomoon/styles.css")?>" rel="stylesheet" type="text/css">
+
+
   <link href="<?=base_url("assets/css/bootstrap.css")?>" rel="stylesheet" type="text/css">
   <link href="<?=base_url("assets/css/core.css")?>" rel="stylesheet" type="text/css">
   <link href="<?=base_url("assets/css/components.css")?>" rel="stylesheet" type="text/css">
   <link href="<?=base_url("assets/css/colors.css")?>" rel="stylesheet" type="text/css">
   <link href="<?=base_url("assets/css/sweetalert.css")?>" rel="stylesheet" type="text/css">
-  <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" type="text/css" href="<?=base_url("assets/css/dataTables.bootstrap.min.css")?>"/>
 
 
   <!-- /global stylesheets -->
 
   <!-- Core JS files -->
-  <script type="text/javascript" src="<?=base_url("assets/js/core/libraries/jquery.min.js")?>"></script>
+
+
+
 
   <!-- Datepicker -->
   <!-- /theme JS files -->
@@ -192,7 +197,7 @@ if ($Hour >= 5 && $Hour <= 11) {
             <div class="category-content">
               <div class="sidebar-user-material-content">
                 <a href="#" style="box-shadow: none;
-                background: url(<?=base_url($this->session->userdata('user')['Company_Logo']);?>);
+                background: url('<?=base_url($this->session->userdata('user')['Company_Logo']);?>');
                 height: 80px;
                 width: 80px;
                 border-radius: 50%;
@@ -321,7 +326,8 @@ if ($Hour >= 5 && $Hour <= 11) {
 </body>
 
 </html>
-
+<script type="text/javascript" src="<?= base_url("assets/js/pages/jquery.dataTables.min.js")?>"></script>
+<script type="text/javascript" src="<?= base_url("assets/js/pages/dataTables.bootstrap.min.js")?>"></script>
 
 <script type="text/javascript" src="<?=base_url("assets/js/plugins/loaders/pace.min.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/plugins/loaders/blockui.min.js")?>"></script>
@@ -330,28 +336,22 @@ if ($Hour >= 5 && $Hour <= 11) {
 <!-- Theme JS files -->
 <script type="text/javascript" src="<?=base_url("assets/js/plugins/tables/datatables/datatables.min.js")?>">
 </script>
-<script type="text/javascript" src="<?=base_url("assets/js/plugins/tables/datatables/extensions/responsive.min.js")?>">
-</script>
+
 <script type="text/javascript" src="<?=base_url("assets/js/pages/datatables_responsive.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/core/app.js")?>"></script>
-<script type="text/javascript" src="<?=base_url("assets/js/plugins/visualization/d3/d3.min.js")?>"></script>
-<script type="text/javascript" src="<?=base_url("assets/js/plugins/visualization/d3/d3_tooltip.js")?>"> </script>
-<script type="text/javascript" src="<?=base_url("assets/js/plugins/forms/styling/switchery.min.js")?>"> </script>
-<script type="text/javascript" src="<?=base_url("assets/js/plugins/forms/styling/uniform.min.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/plugins/forms/selects/bootstrap_multiselect.js")?>">
 </script>
 <script type="text/javascript" src="<?=base_url("assets/js/plugins/ui/moment/moment.min.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/core/libraries/bootstrap.min.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/core/libraries/jquery_ui/widgets.min.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/pages/jqueryui_forms.js")?>"></script>
-<script type="text/javascript" src="<?=base_url("assets/js/plugins/forms/selects/select2.min.js")?>"></script>
-<script type="text/javascript" src="<?=base_url("assets/js/pages/form_select2.js")?>"></script>
-<script type="text/javascript" src="<?=base_url("assets/js/pages/datatables_advanced.js")?>"></script>
-<script type="text/javascript" src="<?=base_url("assets/js/pages/dashboard.js")?>"></script>
+<script type="text/javascript" src="<?=base_url("assets/js/plugins/ui/ripple.min.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/plugins/notifications/sweet_alert.min.js")?>"></script>
 <script type="text/javascript" src="<?=base_url("assets/js/plugins/pickers/daterangepicker.js")?>"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="<?=base_url("assets/js/plugins/ui/ripple.min.js")?>"></script>
+<script type="text/javascript" src="<?=base_url("assets/js/plugins/forms/selects/select2.min.js")?>"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="<?=base_url("assets/js/pages/form_select2.js")?>"></script>
 
 
 
